@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y tzdata \
     cmake \
     curl \
     git \
-    python3 \
+    python3.9 \
     python3-pip \
     python3-venv \
     libjpeg-dev \
