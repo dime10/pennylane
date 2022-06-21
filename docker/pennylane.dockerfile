@@ -44,6 +44,7 @@ RUN pip install wheel && pip install -r requirements.txt
 RUN python3 setup.py install
 RUN pip install pytest pytest-cov pytest-mock flaky
 RUN pip install -i https://test.pypi.org/simple/ pennylane-lightning --pre --upgrade
+RUN pip install pyscf
 RUN pip install openfermionpyscf
 
 # create Second small build.
@@ -55,4 +56,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN apt-get update && apt-get install -y apt-utils \
     --no-install-recommends python3 python3-pip python3-venv
 # Image build completed.
-CMD echo "Successfully built Docker image" 
+CMD echo "Successfully built Docker image"
