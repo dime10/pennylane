@@ -39,13 +39,12 @@ ENV PATH="/opt/venv/bin:$PATH"
 #Setup and Build pennylane
 WORKDIR /opt/pennylane
 COPY  . .
-RUN git submodule update --init --recursive \
-    && pip install wheel && pip install -r requirements.txt \
-    && python3 setup.py install \
-    && pip install pytest pytest-cov pytest-mock flaky \
-    && pip install -i https://test.pypi.org/simple/ pennylane-lightning --pre --upgrade \
-    && pip install openfermionpyscf \
-    && make test && make coverage
+RUN git submodule update --init --recursive
+RUN pip install wheel && pip install -r requirements.txt
+RUN python3 setup.py install
+RUN pip install pytest pytest-cov pytest-mock flaky
+RUN pip install -i https://test.pypi.org/simple/ pennylane-lightning --pre --upgrade
+RUN pip install openfermionpyscf
 
 # create Second small build.
 FROM ubuntu:latest
