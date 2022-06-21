@@ -44,7 +44,7 @@ RUN pip install wheel && pip install -r requirements.txt
 RUN python3 setup.py install
 RUN pip install pytest pytest-cov pytest-mock flaky
 RUN pip install -i https://test.pypi.org/simple/ pennylane-lightning --pre --upgrade
-RUN pip install pyscf
+RUN pip -V
 RUN pip install openfermionpyscf
 
 # create Second small build.
