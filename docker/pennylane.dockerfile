@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y tzdata \
     cmake \
     curl \
     git \
-    python3.9 \
+    python3 \
     python3-pip \
     python3-venv \
     libjpeg-dev \
@@ -45,7 +45,7 @@ RUN python3 setup.py install
 RUN pip install pytest pytest-cov pytest-mock flaky
 RUN pip install -i https://test.pypi.org/simple/ pennylane-lightning --pre --upgrade
 RUN pip -V
-RUN pip install openfermionpyscf
+RUN pip install openfermionpyscf || true
 
 # create Second small build.
 FROM ubuntu:latest
